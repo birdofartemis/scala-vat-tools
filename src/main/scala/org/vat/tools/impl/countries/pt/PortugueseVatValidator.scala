@@ -4,6 +4,7 @@ import org.vat.tools.domain.error.VatError
 import org.vat.tools.domain.model.VatNumber
 import org.vat.tools.domain.ports.VatValidator
 
+//todo add missing checks
 object PortugueseVatValidator extends VatValidator {
 
   override def validate(vat: VatNumber): Either[VatError, Unit] = {

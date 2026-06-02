@@ -6,11 +6,12 @@ import org.vat.tools.impl.registry.VatRulesRegistry
 
 object VatService {
 
+  //todo this needs to be updated
   def process(vat: VatNumber): Either[VatError, String] = {
-    val rules = VatRulesRegistry.forCountry(vat.country)
+    val resource = VatRulesRegistry.forCountry(vat.country)
 
     for {
-      _ <- rules.validator.validate(vat)
-    } yield rules.formatter.format(vat)
+      _ <- resource.validator.validate(vat)
+    } yield resource.formatter.format(vat)
   }
 }
